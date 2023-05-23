@@ -35,40 +35,42 @@ print(browser.title) # Возвращает заголовок текущей с
 print(browser.current_url) # Получает URL-адрес текущей страницы.
 
 browser.switch_to.new_window('window') # открывает новое окно браузера
-browser.get(page_4)
-time.sleep(1)
+browser.get(page_4) # Открытие нужного URL
+time.sleep(1) # Дает время увидеть результат работы скрипта
 
 browser.close() # Закрывает текущее окно браузера
-time.sleep(1)
+time.sleep(1) # Дает время увидеть результат работы скрипта
 
 browser.switch_to.window(window_1st) # Переключает фокус на указанное окно
-time.sleep(1)
+time.sleep(1) # Дает время увидеть результат работы скрипта
+
 # --------------------------------------------------------------------------
 
-browser.get(page_1)
-time.sleep(1)
+browser.get(page_1) # Открытие нужного URL
+time.sleep(1) # Дает время увидеть результат работы скрипта
 
-browser.switch_to.new_window('tab')
-browser.get(page_2)
-time.sleep(1)
+browser.switch_to.new_window('tab') # открывает новую вкладку браузера
+browser.get(page_2) # Открытие нужного URL
+time.sleep(1) # Дает время увидеть результат работы скрипта
 
-browser.switch_to.new_window('tab')
-browser.get(page_3)
-time.sleep(1)
+browser.switch_to.new_window('tab') # открывает новую вкладку браузера
+browser.get(page_3) # Открытие нужного URL
+time.sleep(1) # Дает время увидеть результат работы скрипта
 
-browser.switch_to.new_window('tab')
-browser.get(page_4)
-time.sleep(1)
+browser.switch_to.new_window('tab') # открывает новую вкладку браузера
+browser.get(page_4) # Открытие нужного URL
+time.sleep(1) # Дает время увидеть результат работы скрипта
 
-
-while len(browser.window_handles) - 1:
+while len(browser.window_handles) - 1: # Закрываем все вкладки, кроме первой
+    # Переключает фокус на указанное окно
     browser.switch_to.window(browser.window_handles[-1])
-    browser.close()
+    browser.close() # Закрывает текущее окно браузера
 
-
+# Переключает фокус на указанное окно
 browser.switch_to.window(browser.window_handles[0])
+
+# Сохраняет скриншот текущего окна в файл изображения PNG
 browser.save_screenshot(f"{os.path.dirname(__file__)}/scr/foo1.png")
 
-
-time.sleep(3)
+time.sleep(3) # Дает время увидеть результат работы скрипта
 browser.quit() # Закрытие процесса браузера
